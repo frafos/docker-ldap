@@ -7,7 +7,7 @@ services:
 #
 
     ldap:
-        image: osixia/openldap:1.1.8
+        image: osixia/openldap:1.2.4
         container_name: test-ldap
         # hostname : ldap.example.org
         # network: host
@@ -15,8 +15,8 @@ services:
         ports:
           - 389:389
           - 636:636
-        volumes:
-            - ./ldap_entries:/ldap_entries/
+        # volumes:
+        #     - ./ldap_entries:/ldap_entries/
             # :/var/lib/ldap
             # /etc/ldap/sladp.d
     ldapadmin:
@@ -24,11 +24,12 @@ services:
         container_name: test-ldapadmin
         hostname: ldapadmin
         # hostname: ldapadmin.example.org
+        ports:
+          - 6443:443
         links:
             - ldap:ldapadmin
         environment:
-            PHPLDAPADMIN_LDAP_HOSTS: "ldapadmin"
-            PHPLDAPADMIN_HTTPS=false:
+            PHPLDAPADMIN_LDAP_HOSTS: "ldap"
 
 
 volumes:
