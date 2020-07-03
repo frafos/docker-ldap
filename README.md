@@ -1,6 +1,8 @@
 # README.md
 
-## Up the stack
+ldap docker stack to perfom various test with an Frafos ABC SBC stack.
+
+## Start the container
 
 ```bash
 $ docker-compose up --build
@@ -29,7 +31,21 @@ $ ldapsearch -x -D "cn=admin,dc=example,dc=org" -w admin -H ldap://127.0.0.1:389
 11:07:55 ❯ docker inspect -f "{{.NetworkSettings.Networks.ldap_default.IPAddress}}" test-ldap
 ```
 
-## help us
+## Access phpldapadmin
+
+You can get the phpLDAPadmin IP by running :
+```
+$ docker inspect -f "{{.NetworkSettings.Networks.dockerldapphp_default.IPAddress}}" dockerldap_phpldapadmin_1
+```
+
+You can then access the phpLDAPadmin at https://$IP_LDAP and log with those credentials :
+
+
+| **Login DN**               | **Password** |
+| :-:                        | :-:          |
+| cn=admin,dc=example,dc=org | admin        |
+
+## Attach to an ABC SBC docker stack
 
 Attach an ldap container to a running Frafos ABC SBC stack
 
@@ -47,3 +63,11 @@ $ docker run -it \
 $ # feed the docker
 $ ldapadd -x -D "cn=admin,dc=example,dc=org" -w admin -H ldap:// -f ./ldap_entries/add_content.ldif
 ```
+
+# Contributuing
+
+First of all, **thank you** for contributing :hearts:
+
+If you find any typo/misconfiguration/... please send me a PR or open an issue. You can also ping me on twitter.
+
+Also, while creating your Pull Request on GitHub, please write a description which gives the context and/or explains why you are creating it.

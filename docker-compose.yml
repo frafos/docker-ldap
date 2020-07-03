@@ -17,8 +17,7 @@ services:
           - 636:636
         # volumes:
         #     - ./ldap_entries:/ldap_entries/
-            # :/var/lib/ldap
-            # /etc/ldap/sladp.d
+
     ldapadmin:
         image: osixia/phpldapadmin:0.7.1
         container_name: test-ldapadmin
@@ -30,8 +29,3 @@ services:
             - ldap:ldapadmin
         environment:
             PHPLDAPADMIN_LDAP_HOSTS: "ldap"
-
-
-volumes:
-    sbc_data:
-    cc_data:
