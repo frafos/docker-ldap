@@ -10,13 +10,13 @@ services:
         image: osixia/openldap:1.2.4
         container_name: test-ldap
         # hostname : ldap.example.org
-        # network: host
-        hostname: ldap
+        network_mode: host
+        # hostname: ldap
         ports:
           - 389:389
           - 636:636
-        # volumes:
-        #     - ./ldap_entries:/ldap_entries/
+        volumes:
+          - ./ldap_entries:/ldap_entries/
 
     ldapadmin:
         image: osixia/phpldapadmin:0.7.1

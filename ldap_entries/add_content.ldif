@@ -6,15 +6,15 @@ dn: ou=Groups,dc=example,dc=org
 objectClass: organizationalUnit
 ou: Groups
 
-# dn: cn=miners,ou=Groups,dc=example,dc=org
-# objectClass: posixGroup
-# cn: miners
-# gidNumber: 5000
-
 dn: cn=GUI,ou=Groups,dc=example,dc=org
 objectClass: posixGroup
 cn: GUI
 gidNumber: 5000
+
+dn: cn=Mistyc,ou=Groups,dc=example,dc=org
+objectClass: posixGroup
+cn: GUI
+gidNumber: 6000
 
 dn: uid=john,ou=People,dc=example,dc=org
 objectClass: inetOrgPerson
@@ -31,3 +31,19 @@ userPassword: johnldap
 gecos: John Doe
 loginShell: /bin/bash
 homeDirectory: /home/john
+
+dn: uid=jane,ou=People,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: jane
+sn: Doe
+givenName: Jane
+cn: Jane Doe
+displayName: Jane Doe
+uidNumber: 10005
+gidNumber: 6000
+userPassword: janeldap
+gecos: Jane Doe
+loginShell: /bin/bash
+homeDirectory: /home/jane
