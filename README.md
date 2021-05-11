@@ -18,6 +18,9 @@ $ docker-compose exec ldap ldapadd -x -D "cn=admin,dc=example,dc=org" -w admin -
 | :-:      | :-:      | :-:                                    |
 | admin    | admin    | `cn=admin,dc=example,dc=org`           |
 | john     | johnldap | `uid=john,ou=People,dc=example,dc=org` |
+| jane     | janeldap | `uid=jane,ou=People,dc=example,dc=org` |
+
+John is a member of the `GUI` group, while Jane belong to the `Mistyc` one.
 
 ## Query the ldap (from host)
 
@@ -50,7 +53,7 @@ You can then access the phpLDAPadmin at https://$IP_LDAP and log with those cred
 Attach an ldap container to a running Frafos ABC SBC stack
 
 ```bash
-$ # run the ldap container 
+$ # run the ldap container
 $ docker run -it \
     --rm \
     --name test-ldap \
