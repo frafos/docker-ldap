@@ -47,3 +47,11 @@ userPassword: janeldap
 gecos: Jane Doe
 loginShell: /bin/bash
 homeDirectory: /home/jane
+
+dn: cn=not_primary,ou=Groups,dc=example,dc=org
+cn: not_primary
+gidNumber: 500
+memberUid: john
+memberUid: jane
+objectClass: posixGroup
+objectClass: top
